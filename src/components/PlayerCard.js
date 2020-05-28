@@ -37,6 +37,12 @@ class PlayerCard extends Component {
      )}
 }
 
+PlayerCard.defaultProps = {
+    player: {
+        name: '',
+        team: '',
+    }
+};
 
 
 export default PlayerCard;

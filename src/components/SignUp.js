@@ -1,28 +1,35 @@
 import React, { useState } from 'react';
-import { Button, Jumbotron, Form, FormGroup } from 'react-bootstrap';
+import { Button, Alert, Form, FormGroup, Jumbotron } from 'react-bootstrap';
 
 
-
-
-const Login = () => {
+const SignUp = () => {
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
 
-    const doLogIn = (e) => {
+    const [message, setMessage] = useState('');
+
+    const register = (e) => {
         e.preventDefault()
-        fetch ("http://localhost:3000/users/"+name)
-        .then(resp => resp.json())
-        .then(user => {
-            localStorage.setItem("name", JSON.stringify(user))
-        }) 
+        fetch("http://localhost:3000/users", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+                accepts: "application/json"
+            },
+            body: JSON.stringify({
+                name: name,
+                password: password
+            })
+        })
+            .then(resp => resp.json())
+            .then(newUser => setMessage("Welcome to Hot Shots!"))
     }
 
-
-    return(
+    return (
         <Jumbotron className="text-center"> 
         <div className="row">
             <div className="col-4 mx-auto"> 
-                <Form onSubmit={doLogIn}>
+                <Form onSubmit={register}>
                     <FormGroup> 
                         <Form.Label> Name: </Form.Label>
                     <Form.Control placeholder="Enter Name" onChange={e => setName(e.target.value)} />
@@ -31,22 +38,16 @@ const Login = () => {
                     <Form.Control placeholder="Enter Password" onChange={e => setPassword(e.target.value)} />
                     <FormGroup> 
                     </FormGroup>
-                    <Button type="submit">Log In</Button>
+                    <Button type="submit">Sign Up</Button>
+                    <Alert> {message} </Alert>
                 </Form>
             </div>
         </div>
         </Jumbotron>
-        
-            // <form onSubmit={doLogIn}>
-            //     <h1> LOGIN </h1>
-            // <input onChange={e => setName(e.target.value)}/> 
-            // <Button type="submit"> Log In</Button>
-            // </form>
-            
-     
+
 
     )
 }
 
 
-export default Login;
+export default SignUp

@@ -8,7 +8,6 @@ const NavBar = () => {
             <div className="mt-2">
                 <Link to="/login">
                     <Button> Login: </Button>
-
                 </Link>
             </div>
             <div className="mt-2">
