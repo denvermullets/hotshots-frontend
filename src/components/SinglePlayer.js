@@ -3,28 +3,42 @@
 // I didnt keep adding the stats cause i didnt know if you wanted to fix something, if not ill add them
 // Just an FYI i guess
 
-import React, { useState } from 'react';
+
+
+import React from 'react';
+// if you just want to use 1 element from bootstrap, import like this
+import { ListGroup } from "react-bootstrap";
 
 
 const SinglePlayer = (props) => {
-    const [player,setPlayer] = useState (props.player) 
+    // const [player,setPlayer] = useState (props.player) 
+    const { age, games_played, games_started, fg, fga, fgp, three_point_gpg} = props.player
     return(
-        <div>
-            Age: {props.player.age}
-            <br/>
-            Games Played: {props.player.games_played}
-            <br/>
-            Games Started: {props.player.games_started}
-            <br/>
-            Field Goals: {props.player.fg}
-            <br/>
-            Field Goals Attempted: {props.player.fga}
-            <br/>
-            Field Goal Percentage: {props.player.fgp}
-            <br/>
-            Three Pointers Per Game: {props.player.three_point_gpg}
 
-        </div>
+        // <ListGroup variant="flush">
+        //     <ListGroup.Item><span>Age: {age}</span></ListGroup.Item>
+        //     <ListGroup.Item>Games Played: {games_played}</ListGroup.Item>
+        //     <ListGroup.Item>Games Started: {games_started}</ListGroup.Item>
+        //     <ListGroup.Item>Field Goals: {fg}</ListGroup.Item>
+        //     <ListGroup.Item>Field Goal Attempts: {fga}</ListGroup.Item>
+        //     <ListGroup.Item>Field Goal Percentage: {fgp}</ListGroup.Item>
+        //     <ListGroup.Item>Three Pointers Per Game: {three_point_gpg}</ListGroup.Item>
+        // </ListGroup>
+            <span>
+                Age: {age}
+                <br/>
+                Games Played: {games_played}
+                <br/>
+                Games Started: {games_started}
+                <br/>
+                Field Goals: {fg}
+                <br/>
+                Field Goals Attempted: {fga}
+                <br/>
+                Field Goal Percentage: {fgp}
+                <br/>
+                Three Pointers Per Game: {three_point_gpg}
+            </span>        
 
 
     )

@@ -4,6 +4,20 @@ import CardColumns from 'react-bootstrap/CardColumns';
 
 
 class PlayerList extends Component {
+
+    state = {
+        currentTeam: [],
+    }
+
+    addToTeam = () => {
+        // want to check if player is on team
+        // if no - add to team,
+        // if yes - remove from team
+
+
+    }
+
+
     render() {
         console.log(this.props.players)
         return (
@@ -15,8 +29,6 @@ class PlayerList extends Component {
                 </CardColumns>
                 
             </div>
-
-            
 
             
         );
