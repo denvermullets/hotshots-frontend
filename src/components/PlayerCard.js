@@ -16,17 +16,18 @@ class PlayerCard extends Component {
 
     
     render(){
-      
+      const {name, team, id} = this.props.player
+      let currentTeam = this.props.currentTeam.includes(id)
      return(  
-        <Card>
+        <Card border={currentTeam ? "success" : null }>
             <Card.Body>
-                <Card.Title>{this.props.player.name}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">{this.props.player.team}</Card.Subtitle>
+                <Card.Title>{name}</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">{team}</Card.Subtitle>
                 <Card.Text>
                     {/* if cardToggle = TRUE then display SinglePlayer, if FALSE do nothing */}
                     {this.state.cardToggle ? <SinglePlayer player={this.props.player}/> : null }
                 </Card.Text>
-                <Button variant="outline-success">
+                <Button variant="outline-success" onClick={() => this.props.addToTeam(id)}>
                     Add to Team
                 </Button>{'  '}
                 <Button variant="outline-info" onClick={this.handleClick}>
@@ -37,12 +38,6 @@ class PlayerCard extends Component {
      )}
 }
 
-PlayerCard.defaultProps = {
-    player: {
-        name: '',
-        team: '',
-    }
-};
 
 
 export default PlayerCard;
