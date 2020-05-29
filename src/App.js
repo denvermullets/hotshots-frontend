@@ -12,13 +12,9 @@ import Play from './components/Play.js';
 
 const history = createBrowserHistory()
 
-
 {/* <Route path ="/login" render {() => <login props={5}/>}/> */ }
 
-
-
 function App() {
-
 
   return (
     <Router history={history}>
