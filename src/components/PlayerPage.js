@@ -1,6 +1,7 @@
 import React, {Component } from 'react';
 import PlayerList from './PlayerList'
 import Container from 'react-bootstrap/Container'
+import { Switch } from 'react-router-dom';
 
 const teamPlayers = 'http://localhost:3000/team_players'
 
@@ -66,6 +67,7 @@ class PlayerPage extends Component {
         return (
             // <NavBar />
             <Container>
+            
                 <PlayerList 
                     players={this.state.players} 
                     addToTeam={this.addToTeam}

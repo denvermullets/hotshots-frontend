@@ -36,15 +36,6 @@ const Login = () => {
             </div>
         </div>
         </Jumbotron>
-        
-            // <form onSubmit={doLogIn}>
-            //     <h1> LOGIN </h1>
-            // <input onChange={e => setName(e.target.value)}/> 
-            // <Button type="submit"> Log In</Button>
-            // </form>
-            
-     
-
     )
 }
 
