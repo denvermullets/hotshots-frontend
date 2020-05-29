@@ -16,6 +16,11 @@ const history = createBrowserHistory()
 
 function App() {
 
+//   <Route
+//   path='/dashboard'
+//   render={(props) => <Dashboard {...props} isAuthed={true} />}
+// />
+
   return (
     <Router history={history}>
       <Container fluid>
